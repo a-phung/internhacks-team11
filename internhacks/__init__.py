@@ -4,11 +4,20 @@ import os
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
-app = Flask(__name__)  # Instantiates Flask App
-app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')  # Protects against cookies
+# Starts Flask app
+app = Flask(__name__)
+# Protects against cookies - store your key in your ENV file
+app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY') 
+# Our database is found at site.db for local - for production, we will change this
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app) 
+# Creates database
+db = SQLAlchemy(app)
+# Generates and checks password hashes 
 bcrypt = Bcrypt(app)
+# Handles all of our login/logout functionality
 login_manager = LoginManager(app)
-
-from internhacks import routes
+# User is redirected to /login if not logged in
+login_manager.login_view = 'login' 
+login_manager.login_message_category = 'info'
+# Import routes - DO NOT MOVE THE BELOW LINE
+from internhacks import routes 

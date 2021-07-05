@@ -9,7 +9,7 @@ class RegistrationForm(FlaskForm):  # Python classes representative of forms aut
     email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
-    submit = SubmitField("Sign up")
+    submit = SubmitField("Register")
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -25,4 +25,4 @@ class LoginForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     remember = BooleanField("Remember Me")  # Cookie to remember that user is logged in
-    submit = SubmitField("Sign up")
+    submit = SubmitField("Login")
