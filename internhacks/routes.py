@@ -1,10 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)  # Instantiates flask application
-
-app.config["SECRET_KEY"] = "af1fad958cb13759f8627cc704452326"  # Will protect against modifying cookies
-
+from flask import render_template, url_for, flash, redirect
+from internhacks.forms import RegistrationForm, LoginForm
+from internhacks.models import User
+from internhacks import app, db, bcrypt
 
 @app.route("/")
 def home():
@@ -20,9 +17,15 @@ def about():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f"Account created for {form.username.data}!", "success")
-        return redirect(url_for("home"))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash(f"Your account has been created! You are now able to log in.", "success")
+        return redirect(url_for("login"))
     return render_template("register.html", title="Registration", form=form)
+
+bcrypt.generate_password_hash('password').decode('utf-8')
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -35,7 +38,3 @@ def login():
         # Else:
         #     flash("Login Unsuccessful. Please check username and password", "danger")
     return render_template("login.html", title="Login", form=form)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
