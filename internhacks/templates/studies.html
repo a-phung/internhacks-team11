@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Discover Case Studies</h1>
+            </div>
+            <div class="col">
+                <p>Looking for a specific case study of your domain? Explore our thoughtfully curated selections and find your one of a kind case study below.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <!--Add New Tag Form -->
+                <form method="POST" action="/case-studies/search">
+                    {{ form.hidden_tag() }}  <!--Adds CSRF token-->
+                    <fieldset class="form-group">
+                        <div class="form-group">
+                            {{ form.search.label(class="form-control-label") }}
+                            {{ form.search(class="form-control form-control-lg") }}
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-info") }}
+                    </div>
+                </form>
+                <!--End New Tag Form -->
+            </div>
+        </div>
+        <div class="row">
+                <b>Tags:</b>
+                {% for tag in tags %}
+                <a class="nav-item nav-link" href="">
+                    <button type="button" class="btn btn-outline-primary">{{ tag.name }}</button>
+                </a>
+                {% endfor %}
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for study in studies %}
+                <div class="col">
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="{{ study.image_url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ study.topic }}</h5>
+                        <p class="card-text">{{ study.description }}.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col">
+                                <a href="{{ study.external_url}}" class="card-link">
+                                    <button type="button" class="btn btn-outline-primary">
+                                    Learn More
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+    </div>
+{% endblock content%}

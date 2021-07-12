@@ -43,8 +43,8 @@ Clone Github repo to your local computer:
 ### Setting up NEW Database
 - Open Python3:
 `from internhacks import db`
+`db.create_all()`
 `from models import User`
-`db.create.all()`
 `user1 = User(username='USERNAME', email='EMAIL_ADDRESS', password='PASSWORD')`
 `user1 = User(username='kharissa', email='kharissa@test.com', password='password')`
 `db.session.add(user1)`

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <!--Add New Tag Form -->
+        <form method="POST" action="/tag/new">
+            {{ form.hidden_tag() }}  <!--Adds CSRF token-->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add New Tag</legend>
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                    <!--Form error validation-->
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <!--Form error validation end-->
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+        <!--End New Tag Form -->
+    </div>
+{% endblock content%}

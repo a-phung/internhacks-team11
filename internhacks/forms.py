@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from internhacks.models import User
+from internhacks.models import User, Study, Tag
 
 
 class RegistrationForm(FlaskForm):  # Python classes representative of forms automatically converted to HTML
@@ -26,3 +26,28 @@ class LoginForm(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired()])
     remember = BooleanField("Remember Me")  # Cookie to remember that user is logged in
     submit = SubmitField("Login")
+
+class StudyForm(FlaskForm):
+    topic = StringField("Topic", validators=[DataRequired()])
+    description = StringField("Description", validators=[DataRequired()])
+    external_url = StringField("External Link", validators=[DataRequired()])
+    image_url = StringField("Image URL", validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
+    def validate_topic(self, topic):
+        topic = Study.query.filter_by(topic=topic.data).first()
+        if topic:
+            raise ValidationError('That topic was already created.')
+
+class TagForm(FlaskForm):
+    name = StringField("Topic", validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
+    def validate_name(self, name):
+        name = Tag.query.filter_by(name=name.data).first()
+        if name:
+            raise ValidationError('That tag name was already created.')
+
+class SearchForm(FlaskForm):
+    search = StringField("")
+    submit = SubmitField("Search")
