@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('admin') }}">Admin Panel</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add New Tag</li>
+            </ol>
+        </nav>
         <!--Add New Tag Form -->
         <form method="POST" action="/tag/new">
             {{ form.hidden_tag() }}  <!--Adds CSRF token-->

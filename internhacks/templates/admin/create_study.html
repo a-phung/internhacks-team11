@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('admin') }}">Admin Panel</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add New Case Study</li>
+            </ol>
+        </nav>
         <!--Add New Case Study Form -->
         <form method="POST" action="/study/new">
             {{ form.hidden_tag() }}  <!--Adds CSRF token-->

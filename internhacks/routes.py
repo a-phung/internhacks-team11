@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request, jsonify, g
-from internhacks.forms import RegistrationForm, LoginForm, StudyForm, TagForm, SearchForm
-from internhacks.models import User, Study, Tag, Bookmark
+from internhacks.forms import RegistrationForm, LoginForm, StudyForm, TagForm, SearchForm, StudyTagForm
+from internhacks.models import User, Study, Tag
 from internhacks import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from functools import wraps
@@ -19,23 +19,27 @@ def admin_required(f):
 
 @app.route("/")
 def home():
+    """ Render Home page. """
     return render_template("home.html")
 
 
 @app.route("/about")
 def about():
+    """ Render About page. """
     return render_template("about.html", title="About")
 
 
 @app.route("/admin")
 @admin_required
 def admin():
+    """ Render Admin page if user has admin access. """
     return render_template("admin/index.html", title="Admin")
 
 
 @app.route("/study/new", methods=["GET", "POST"])
 @admin_required
 def new_study():
+    """ GET add new case study form or POST new case study to database. """
     form = StudyForm()
     if form.validate_on_submit():
         # Create study instance - check form model for validation
@@ -48,10 +52,31 @@ def new_study():
         return redirect(url_for('new_study'))
     return render_template("/admin/create_study.html", title="Create New Case Study", form=form)
 
+@app.route("/bookmarks/new", methods=["GET", "POST"])
+@login_required
+def new_bookmark():
+    """ GET add new bookmark for user or POST new bookmark to user. """
+    # Retrieve study ID
+    study_id = request.args.get('study')
+    # Retrieve study object
+    study = Study.query.get(study_id)
+    # Does relationship already exist?
+    if study in current_user.bookmarks:
+        current_user.bookmarks.remove(study)
+        db.session.commit()
+        flash(f"This study has been un-bookmarked.", "success")
+    else:
+        # Add study to bookmarks
+        current_user.bookmarks.append(study)
+        # Save database
+        db.session.commit()
+        flash(f"This study was added!", "success")
+    return render_template("studies.html", title="Case Studies", studies=Study.query.all(), tags=Tag.query.all(), form=SearchForm())
 
 @app.route("/tag/new", methods=["GET", "POST"])
 @admin_required
 def new_tag():
+    """ GET add new tag form or POST new tag to database. """
     form = TagForm()
     if form.validate_on_submit():
         # Create tag instance - check form model for validation
@@ -64,8 +89,31 @@ def new_tag():
         return redirect(url_for('new_tag'))
     return render_template("/admin/create_tag.html", title="Create New Tag", form=form)
 
+
+@app.route("/study/tag/new", methods=["GET", "POST"])
+@admin_required
+def new_study_tag():
+    """ GET add tag to study form or POST new tag to study. """
+    form = StudyTagForm()
+    if form.validate_on_submit():
+        # Retrieve study and tag instance
+        study = Study.query.get(form.study.data)
+        tag = Tag.query.get(form.tag.data)
+        # Does relationship already exist?
+        if tag in study.tags:
+            flash(f"This tag is already added to this study.", "warning")
+        else:
+            # Add tag to study
+            study.tags.append(tag)
+            # Save database
+            db.session.commit()
+            flash(f"This tag was added!", "success")
+    return render_template("/admin/add_study_tag.html", title="Add Tag to Case Study", form=form)
+
+
 @app.route("/tag/all", methods=["GET"])
 def view_tags():
+    """ GET json of all tags. """
     tags = Tag.query.all()
     return jsonify([
         {'id': tag.id, 'name': tag.name} for tag in tags]
@@ -73,50 +121,63 @@ def view_tags():
 
 @app.route("/study/all", methods=["GET"])
 def view_studies():
+    """ GET json of all studies. """
     studies = Study.query.all()
     return jsonify([
         {'id': study.id, 'topic': study.topic, 'description': study.description, 'external_url': study.external_url, 'image_url': study.image_url} for study in studies]
     )
 
 
-@app.route("/case-studies", methods=["GET"])
+@app.route("/case-studies", methods=["GET", "POST"])
 def case_studies():
+    """ GET list of case studies or POST case studies based on filters. """
+    # Get tag if passed in
+    tag_name = request.args.get('tag')
+    # Get all studies and tags
     studies = Study.query.all()
     tags = Tag.query.all()
-    return render_template("studies.html", title="Case Studies", studies=studies, tags=tags, form=SearchForm())
-
-
-@app.route("/case-studies/search", methods=["GET", "POST"])
-def search():
-    results = Study.query.all()
     form = SearchForm()
-    search_string = form.search.data
-    if search_string:
+    # If there is a search query or tag filter
+    if form.search.data or tag_name:
+        # Create empty list to hold filtered results
         filtered_results = []
-        for result in results:
-            if search_string in result.topic.lower() or search_string in result.description.lower():
-                filtered_results.append(result)
+        # Iterte over every study
+        for study in studies:
+            if tag_name and not form.search.data:
+                for tag in study.tags:
+                    if tag_name == tag.name:
+                        filtered_results.append(study)
+            elif form.search.data in study.topic.lower() or form.search.data in study.description.lower():
+                if tag_name:
+                    for tag in study.tags:
+                        if tag_name == tag.name:
+                            filtered_results.append(study)
+                else:
+                    filtered_results.append(study)
         if filtered_results:
-            results = filtered_results
+            studies = filtered_results
         else:
             flash(f"There were no matches to your search.", "warning")
-    return render_template("studies.html", title="Case Studies - Results", studies=results, tags=Tag.query.all(), form=form)
+    return render_template("studies.html", title="Case Studies", studies=studies, tags=tags, form=SearchForm())
 
 
 @app.route("/upload")
 @login_required
 def upload():
+    """ Render Upload page. """
     return render_template("upload.html", title="Upload File")
 
 
 @app.route("/account")
 @login_required
 def account():
+    """ Render Account page. """
     return render_template("account.html", title="Account")
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """ Render User Registration form. """
     # Redirect user if already logged in
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -138,6 +199,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ Render User Login form. """
     # Redirect user if already logged in
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -161,5 +223,6 @@ def login():
 
 @app.route("/logout")
 def logout():
+    """ Logs out user. """
     logout_user()
     return redirect(url_for("home"))

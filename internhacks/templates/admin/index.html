@@ -1,17 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Admin Panel</li>
+            </ol>
+        </nav>
         <div class="media">
             <div class="media-body">
-                <h2 class="account-heading">Admin Dashboard</h2>
-                <p>
-                    <a class="nav-item nav-link" href="{{ url_for('new_study') }}">
-                        <button type="button" class="btn btn-primary">Add New Case Study</button>
-                    </a>
-                    <a class="nav-item nav-link" href="{{ url_for('new_tag') }}">
-                        <button type="button" class="btn btn-primary">Add New Tag</button>
-                    </a>
-                </p>
+                <ul class="nav justify-content-left">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ url_for('new_study') }}">Add New Case Study</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('new_tag') }}">Add New Tag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('new_study_tag') }}">Add Tag to Study</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
