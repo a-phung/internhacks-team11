@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('admin') }}">Admin Panel</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add New Case Study</li>
+            </ol>
+        </nav>
+        <!--Add New Case Study Form -->
+        <form method="POST" action="/study/new">
+            {{ form.hidden_tag() }}  <!--Adds CSRF token-->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add New Case Study</legend>
+                <div class="form-group">
+                    {{ form.topic.label(class="form-control-label") }}
+                    <!--Form error validation-->
+                    {% if form.topic.errors %}
+                        {{ form.topic(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.topic.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.topic(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <!--Form error validation end-->
+                </div>
+                <div class="form-group">
+                    {{ form.description.label(class="form-control-label") }}
+                    <!--Form error validation-->
+                    {% if form.description.errors %}
+                        {{ form.description(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.description.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.description(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <!--Form error validation end-->
+                </div>
+                <div class="form-group">
+                    {{ form.external_url.label(class="form-control-label") }}
+                    <!--Form error validation-->
+                    {% if form.external_url.errors %}
+                        {{ form.external_url(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.external_url.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.external_url(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <!--Form error validation end-->
+                </div>
+                <div class="form-group">
+                    {{ form.image_url.label(class="form-control-label") }}
+                    <!--Form error validation-->
+                    {% if form.image_url.errors %}
+                        {{ form.image_url(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.image_url.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.image_url(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <!--Form error validation end-->
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+        <!--End New Case Study Form -->
+    </div>
+{% endblock content%}

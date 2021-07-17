@@ -1,4 +1,60 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ current_user.username }}</h1>
+    <div class="content-section">
+        <div class="media">
+            <div class="media-body">
+                <h2 class="account-heading">Username: {{ current_user.username }}</h2>
+                <p class="text-secondary">{{ current_user.email }}</p>
+            </div>
+        </div>
+        <div>
+            <h3>Saved Studies</h3>
+            {% if current_user.bookmarks %}
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for study in current_user.bookmarks %}
+                <div class="col">
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="{{ study.image_url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ study.topic }}</h5>
+                        <p class="card-text">{{ study.description }}</p>
+                        <p>
+                            <a href="{{ study.external_url}}" class="card-link">
+                                <button type="button" class="btn btn-outline-primary">
+                                Learn More
+                                </button>
+                            </a>
+                            {% if study in current_user.bookmarks %}
+                            <a href="{{ url_for('new_bookmark', study=study.id) }}" class="card-link">
+                                <button type="button" class="btn btn-outline-primary">
+                                Remove Bookmark
+                                </button>
+                            </a>
+                            {% else %}
+                            <a href="{{ url_for('new_bookmark', study=study.id) }}" class="card-link">
+                                <button type="button" class="btn btn-outline-primary">
+                                Add Bookmark
+                                </button>
+                            </a>
+                            {% endif %}
+                         </a>
+                         </div>
+                        </p>
+                        <div class="row">
+                            <div class="col m-2">
+                                {% for tag in study.tags %}
+                                    <span class="text-white badge rounded-pill bg-primary">{{ tag.name }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+    </div>
+            {% else %}
+            <p>No saved bookmarks</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock content%}
