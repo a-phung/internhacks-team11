@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 body {
-  background: #fafafa;
+  background: #ffffff;
   color: #333333;
-  margin-top: 5rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
@@ -106,5 +105,61 @@ a.article-title:hover {
   background: #140152;
   color: #ffffff;
   border-color: #140152;
+}
 
+.btn-outline-fairview{
+  border-color: #0D00A4;
+  color: #0D00A4;
+}
+
+.btn-outline-fairview:hover,
+.btn-outline-fairview:active,
+.btn-outline-fairview:focus,
+.btn-outline-fairview.active {
+  background: #0D00A4;
+  color: #ffffff;
+  border-color: #0D00A4;
+}
+
+.btn-outline-fairview:hover svg,
+.btn-outline-fairview:active svg,
+.btn-outline-fairview:focus svg,
+.btn-outline-fairview.active svg {
+  stroke: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+  .card-carousel-inner .card-carousel-item>div {
+    display: none;
+  }
+
+  .card-carousel-inner .card-carousel-item>div:first-child {
+    display: block;
+  }
+}
+
+.card-carousel-inner .card-carousel-item.active,
+.card-carousel-inner .card-carousel-item-next,
+.card-carousel-inner .card-carousel-item-prev {
+  display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+
+  .card-carousel-inner .card-carousel-item-right.active,
+  .card-carousel-inner .card-carousel-item-next {
+    transform: translateX(33.333%);
+  }
+
+  .card-carousel-inner .card-carousel-item-left.active,
+  .card-carousel-inner .card-carousel-item-prev {
+    transform: translateX(-33.333%);
+  }
+}
+
+.card-carousel-inner .card-carousel-item-right,
+.card-carousel-inner .card-carousel-item-left {
+  transform: translateX(0);
 }

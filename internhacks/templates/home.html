@@ -1,13 +1,122 @@
 {% extends "layout.html" %}  <!--Inherits the HTML template from layout.html-->
 {% block content %}  <!--Block content starts the body of the HTML-->
-    <div class="row">
-        <div class="col">
-            <h1>Responsibly Examine Data with FairView</h1>
-            <p>FairView is a project run by a group of enthusiastic college students offering a tool to help ML practitioners to gain deeper insights into their metadata and realize possible bias/unfairness. </p>
-            <button type="button" class="btn btn-primary btn-fairview">Try it out</button>
+<div class="container">
+    <div class="row gx-5 vh-100">
+        <div class="col-md-auto col-lg-6 align-content-center my-auto p-3">
+            <div class="container">
+                <div class="row">
+                    <h1>Responsibly Examine Data with FairView</h1>
+                </div>
+                <div class="row my-4">
+                    <p>FairView is a project run by a group of enthusiastic college students offering a tool to help ML practitioners to gain deeper insights into their metadata and realize possible bias/unfairness. </p>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <button type="button" class="btn btn-primary btn-fairview">Try it out</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="col">
+        <div class="col col-sm-12 col-md-auto col-lg-6 my-auto px-0">
             <img src="/static/images/undraw_Data_re_80ws.png" class="img-fluid">
         </div>
     </div>
+    <div class="row gx-5 vh-100">
+        <div class="col-md-auto col-lg-6 align-content-center px-3">
+            <img src="/static/images/undraw file cropped.png" class="img-fluid">
+        </div>
+        <div class="col col-sm-12 col-md-auto col-lg-6 my-auto p-4">
+            <p>WE BEGAN WITH THE QUESTION:</p>
+            <h1>Why does underlying bias in data matter?</h1>
+            <p>Especially in Machine Learning, the problem mainly doesn’t lie in the accuracy of the algorithms but rather in the quality of the training data that developers take in to develop the system. “Garbage in, Garbage out”. Especially in Machine  Learning, the problem mainly doesn’t lie in the accuracy of the algorithms but rather in the quality of the training data that developers take in...</p>
+        </div>
+    </div>
+    <div class="row gx-5">
+        <div class="row justify-content-center my-4">
+            <div class="col text-center">
+                <h1>Explore our Practices</h1>
+            </div>
+            <div class="col text-center">
+                <button type="button" class="btn btn-primary btn-fairview">
+                    See More 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <line x1="13" y1="18" x2="19" y2="12" />
+                    <line x1="13" y1="6" x2="19" y2="12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div id="carouselExampleCaptions" class="carousel slide carousel-dark" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="/static/images/placeholder.jpeg" class="active d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Plan for High-quality Data from the beginning.  .</p>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <img src="/static/images/placeholder.jpeg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Plan for High-quality Data from the beginning.  .</p>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                    <img src="/static/images/placeholder.jpeg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Plan for High-quality Data from the beginning.  .</p>
+                    </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row gx-5 vh-100">
+        <div class="col col-sm-12 col-md-auto col-lg-6 my-auto px-0">
+            <img src="/static/images/undraw_Metrics_cropped.png" class="img-fluid">
+        </div>
+        <div class="col-md-auto col-lg-6 align-content-center my-auto p-3">
+            <div class="container">
+                <div class="row">
+                    <h1>Examine Your Metadata</h1>
+                </div>
+                <div class="row my-4">
+                    <p>
+                        The metadata also influences the underlying biases of your developed Machine Learning System later on. WIth our tool, you would be able to see the demographic distribution of your metadata’s available attributes, for example location, age, race, etc.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <button type="button" class="btn btn-primary btn-fairview">
+                    Try it out 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <line x1="13" y1="18" x2="19" y2="12" />
+                    <line x1="13" y1="6" x2="19" y2="12" />
+                    </svg>
+                </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content%}
