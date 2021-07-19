@@ -1,7 +1,13 @@
 {% extends "layout.html" %}  <!--Inherits the HTML template from layout.html-->
 {% block content %}  <!--Block content starts the body of the HTML-->
-    <h1>InternHacks - Team 11</h1>
-    <div>
-        <p>Welcome to the Home Page.</p>
+    <div class="row">
+        <div class="col">
+            <h1>Responsibly Examine Data with FairView</h1>
+            <p>FairView is a project run by a group of enthusiastic college students offering a tool to help ML practitioners to gain deeper insights into their metadata and realize possible bias/unfairness. </p>
+            <button type="button" class="btn btn-primary btn-fairview">Try it out</button>
+        </div>
+        <div class="col">
+            <img src="/static/images/undraw_Data_re_80ws.png" class="img-fluid">
+        </div>
     </div>
 {% endblock content%}

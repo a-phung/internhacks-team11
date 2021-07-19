@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
 body {
   background: #fafafa;
   color: #333333;
   margin-top: 5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,4 +88,23 @@ a.article-title:hover {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+
+/* Custom Button Styling */
+
+.btn-fairview {
+  background-color: #0D00A4;
+  color: #ffffff;
+  border-color: #0D00A4;
+}
+
+.btn-fairview:hover,
+.btn-fairview:active,
+.btn-fairview:focus,
+.btn-fairview.active {
+  background: #140152;
+  color: #ffffff;
+  border-color: #140152;
+
 }
