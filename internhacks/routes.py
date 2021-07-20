@@ -20,14 +20,14 @@ def admin_required(f):
 @app.route("/")
 def home():
     """ Render Home page. """
-    studies = Study.query.limit(3).all()
+    studies = Study.query.limit(2).all()
     return render_template("home.html", studies=studies)
 
 
-@app.route("/about")
-def about():
-    """ Render About page. """
-    return render_template("about.html", title="About")
+@app.route("/recommended-practices")
+def practices():
+    """ Render Practices page. """
+    return render_template("practices.html", title="Recommended Practices")
 
 
 @app.route("/admin")

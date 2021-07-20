@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="content-section">  <!--Located in main.css to style the class-->
-        <form method="POST" action="">
+    <div class="content-section pt-5">  <!--Located in main.css to style the class-->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form method="POST" action="">
             {{ form.hidden_tag() }}  <!--Adds CSRF token-->
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">User Login</legend>
@@ -49,10 +51,12 @@
             </small>
             <!--Forgot password link end-->
         </form>
-    </div>
-    <div class="border-top pt-3">
+        <div class="border-top pt-3">
         <small class="text-muted">
             Need an account? <a class="ml-2" href="{{ url_for("register") }}">Sign up here.</a>
         </small>
+    </div>
+            </div>
+        </div>
     </div>
 {% endblock content%}

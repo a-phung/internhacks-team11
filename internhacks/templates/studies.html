@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>Discover Case Studies</h1>
-            </div>
-            <div class="col">
-                <p>Looking for a specific case study of your domain? Explore our thoughtfully curated selections and find your one of a kind case study below.</p>
-            </div>
+<div class="container-fluid">
+    <div class="row p-4">
+        <div class="col-md-auto col-lg-6 align-content-center my-auto p-3">
+             <h1>Discover Case Studies</h1>
         </div>
-        <div class="row">
-            <div class="col">
-                <form method="POST" action="/case-studies">
+        <div class="col col-sm-12 col-md-auto col-lg-6 my-auto px-0">
+            <p>Looking for a specific case study of your domain? Explore our thoughtfully curated selections and find your one of a kind case study below.</p>
+        </div>
+    </div>
+    <div class="row p-4">
+        <div class="col">
+            <form method="POST" action="/case-studies">
                     <table class="table">
                         <tbody>
                     {{ form.hidden_tag() }}
@@ -27,21 +27,27 @@
                         </tbody>
                     </table>
                 </form> 
-            </div>
         </div>
-        <div class="row">
-                <b>Tags:</b>
+    </div>
+    <div class="row p-4">
+        <div class="col">
+            <b>Tags:</b>
+            <ul class="tag-list">
                 {% for tag in tags %}
-                <a class="nav-item nav-link" href="{{ url_for('case_studies', tag=tag.name) }}">
+                <li>
+                    <a class="nav-item nav-link" href="{{ url_for('case_studies', tag=tag.name) }}">
                     <button type="button" class="btn btn-outline-primary">{{ tag.name }}</button>
-                </a>
+                    </a>
+                </li>
                 {% endfor %}
+            </ul>
         </div>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-                {% for study in studies %}
-                <div class="col">
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for study in studies %}
+            <div class="col">
                 <div class="card h-100" style="width: 18rem;">
-                    <img src="{{ study.image_url }}" class="card-img-top" alt="...">
+                    <img src="{{ study.image_url }}" class="card-img-top" alt="{{ study.topic }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ study.topic }}</h5>
                         <p class="card-text">{{ study.description }}</p>
@@ -71,8 +77,8 @@
                                 {% endif %}
                             {% endif %}
                             </div>
-                         </a>
-                         </div>
+                        </a>
+                        </div>
                         </p>
                         <div class="row">
                             <div class="col m-2">
@@ -83,7 +89,8 @@
                         </div>
                     </div>
                 </div>
-                </div>
-            {% endfor %}
+            </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock content%}
