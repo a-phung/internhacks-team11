@@ -1,8 +1,50 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Upload File</h1>
+    <h1>Analyze Dataset</h1>
+    <h2>Example of Analysis</h2>
     <div>
-        <label for="data_set">Please upload your data set or file here:</label>
-        <input type="file" id="data_set" name="data" accept="text/csv,.csv,.text/tab-separated-values,.tsv">
+        <p>
+            The loaded analysis of the metadata from your dataset will break down demographics into separate categories
+            to understand... The rest of this brief paragraph can provide more explanation into how the finished
+            analysis will look like after a user uploads their dataset.
+        </p>
+    </div>
+    <div>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <div>
+                    <label for="data_set">Please upload your data set or file here:</label>
+                    <input type="file" id="data_set" name="file" accept=".csv">
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div>
+        {% if row_headers %}
+            <h3>Metadata</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        {% for header in row_headers %}
+                            <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, values in data.items() %}
+                        <tr>
+                            <th>{{ key }}</th>
+                            {% for value in values.values() %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
     </div>
 {% endblock content%}

@@ -4,16 +4,21 @@ from internhacks.models import User, Study, Tag
 from internhacks import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from functools import wraps
+import io
+import csv
+import copy
 
 
 def admin_required(f):
     """ Custom function decorator for admin access only. """
+
     @wraps(f)
     def decorated_function(*args, **kwargs):
         # If user is not admin or logged in
         if not current_user.is_admin or not current_user.is_authenticated:
             return redirect(url_for('home'))
         return f(*args, **kwargs)
+
     return decorated_function
 
 
@@ -43,7 +48,8 @@ def new_study():
     form = StudyForm()
     if form.validate_on_submit():
         # Create study instance - check form model for validation
-        study = Study(topic=form.topic.data, description=form.description.data, external_url=form.external_url.data, image_url=form.image_url.data)
+        study = Study(topic=form.topic.data, description=form.description.data, external_url=form.external_url.data,
+                      image_url=form.image_url.data)
         # Add study to database
         db.session.add(study)
         # Save database
@@ -51,6 +57,7 @@ def new_study():
         flash(f"This case study was created!", "success")
         return redirect(url_for('new_study'))
     return render_template("/admin/create_study.html", title="Create New Case Study", form=form)
+
 
 @app.route("/bookmarks/new", methods=["GET", "POST"])
 @login_required
@@ -71,7 +78,9 @@ def new_bookmark():
         # Save database
         db.session.commit()
         flash(f"This study was added!", "success")
-    return render_template("studies.html", title="Case Studies", studies=Study.query.all(), tags=Tag.query.all(), form=SearchForm())
+    return render_template("studies.html", title="Case Studies", studies=Study.query.all(), tags=Tag.query.all(),
+                           form=SearchForm())
+
 
 @app.route("/tag/new", methods=["GET", "POST"])
 @admin_required
@@ -119,12 +128,14 @@ def view_tags():
         {'id': tag.id, 'name': tag.name} for tag in tags]
     )
 
+
 @app.route("/study/all", methods=["GET"])
 def view_studies():
     """ GET json of all studies. """
     studies = Study.query.all()
     return jsonify([
-        {'id': study.id, 'topic': study.topic, 'description': study.description, 'external_url': study.external_url, 'image_url': study.image_url} for study in studies]
+        {'id': study.id, 'topic': study.topic, 'description': study.description, 'external_url': study.external_url,
+         'image_url': study.image_url} for study in studies]
     )
 
 
@@ -161,11 +172,64 @@ def case_studies():
     return render_template("studies.html", title="Case Studies", studies=studies, tags=tags, form=SearchForm())
 
 
-@app.route("/upload")
+@app.route("/upload", methods=["GET", "POST"])
 @login_required
 def upload():
     """ Render Upload page. """
-    return render_template("upload.html", title="Upload File")
+    row_headers = None
+    attributes_dict = {}
+    if request.method == "POST":  # POST method from submitting file
+        if request.files:  # If file is available and uploaded
+            csv_file = request.files["file"]  # Store in variable
+            infile = io.StringIO(csv_file.stream.read().decode("UTF8"), newline=None)  # Makes each line readable
+            reader = csv.reader(infile)  # Read the csv "infile"
+            headers = next(reader)  # Iterate to headers
+
+            feature_counts = {"count": 0, "missing": 0, "frequencies": {}}  # Set up components of dictionary
+
+            for attribute in headers:  # Attribute searching algorithm
+                modified_attribute = attribute.replace('_', '').lower()
+                if modified_attribute == "age" or modified_attribute == "agegroup":
+                    attributes_dict[attribute] = copy.deepcopy(feature_counts)
+                elif modified_attribute == "gender" or modified_attribute == "sex":
+                    attributes_dict[attribute] = copy.deepcopy(feature_counts)
+                elif modified_attribute == "race" or modified_attribute == "ethnicity" \
+                        or modified_attribute == "nationality":
+                    attributes_dict[attribute] = copy.deepcopy(feature_counts)
+                elif "education" in modified_attribute:
+                    attributes_dict[attribute] = copy.deepcopy(feature_counts)
+                elif "income" in modified_attribute:
+                    attributes_dict[attribute] = copy.deepcopy(feature_counts)
+                elif "occupation" in modified_attribute:
+                    attributes_dict[attribute] = copy.deepcopy(feature_counts)
+                elif "employment" in modified_attribute:
+                    attributes_dict[attribute] = copy.deepcopy(feature_counts)
+
+            infile.seek(0)  # Iterate back to the first line
+            csv_dict = csv.DictReader(infile)  # Use DictReader method to read each line in dictionary format
+            for row in csv_dict:  # Gather counts and frequencies
+                for attribute in row:
+                    if attribute in attributes_dict:
+                        value = row[attribute]
+                        if value == '':
+                            attributes_dict[attribute]["missing"] += 1
+                        else:
+                            attributes_dict[attribute]["count"] += 1
+                            if value not in attributes_dict[attribute]["frequencies"]:
+                                attributes_dict[attribute]["frequencies"][value] = 0
+                            attributes_dict[attribute]["frequencies"][value] += 1
+
+            for attribute in attributes_dict:  # Get most common and least common frequencies
+                freq_dict = attributes_dict[attribute]["frequencies"]
+                attributes_dict[attribute]["most_common"] = max(freq_dict, key=freq_dict.get)
+                attributes_dict[attribute]["least_common"] = min(freq_dict, key=freq_dict.get)
+
+            try:  # If attributes were taken from data set, row_headers are passed off
+                row_headers = list(attributes_dict.values())[0].keys()
+            except:  # Else, exception is raised.
+                flash(f"No metadata was obtained! Please check your uploaded file.", "warning")
+
+    return render_template("upload.html", title="Upload File", data=attributes_dict, row_headers=row_headers)
 
 
 @app.route("/account")
