@@ -250,3 +250,20 @@ ul#horizontal-list li a {
     line-height: 30px;
     letter-spacing: -0.01em;
 }
+
+.analyze-square {
+    width: 942px;
+    height: 548px;
+    border: 1px solid rgba(22, 22, 22, 0.5);
+    background: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+/* CSS section for Analyze Dataset Page End*/
+
