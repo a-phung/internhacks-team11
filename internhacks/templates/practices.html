@@ -1,10 +1,61 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="container pt-5">
-        <div class="row">
-            <div class="col">
-                <h1>Recommended Practices</h1>
+    <div class="container-fluid">
+        <div class="row p-4 vh-100 justify-content-center">
+            <div class="col col-sm-12 col-md-auto col-lg-6 my-auto px-0">
+                <img src="/static/images/undraw_Data_points_cropped.png" class="img-fluid">
+            </div>
+            <div class="col-md-auto col-lg-5 align-content-center my-auto p-3">
+                <div class="container">
+                    <div class="row">
+                        <h1>Recommended Practices</h1>
+                    </div>
+                    <div class="row my-4">
+                        <p>We enclose a series of common practices scraped from research. They are organized around key questions that often come up in the Data Collection & Evaluation process, to help you easily find what you need for your project. </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="row p-4 text-center">
+            <h1>What questions do you have?</h1>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <div class="card card-practices">
+                    <div class="card-body">
+                        <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#question-1" role="tab" aria-controls="list-home">All Items (7)</a>
+                            {% for item in data %}
+                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#{{item.id}}" role="tab" aria-controls={{item.id}}>{{ item.question }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="tab-content" id="nav-tabContent">
+                    {% for item in data %}
+                        {% if loop.index == 1 %}
+                        <div class="tab-pane fade show active" id="{{item.id}}" role="tabpanel">
+                        <h3>Data Collection & Evaluation</h3>
+                        {% else %}
+                        <div class="tab-pane fade" id="{{item.id}}" role="tabpanel">
+                        {% endif %}
+                        <div class="row my-4 practices-title">
+                            <div class="col-2">
+                                <img src="/static/images/placeholder.jpeg" style="height:50px;" />
+                            </div>
+                            <div class="col-10">  
+                                <span>{{item.question}}</span>
+                            </div>
+                        </div>
+                        <div>
+                            {{item.answer|safe}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+</div>
 {% endblock content%}

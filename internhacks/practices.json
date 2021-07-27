@@ -1,0 +1,55 @@
+{
+    "data":
+    [{  
+        "id": "question-1",
+        "question": "How to ensure our AI have the breadth to meet our users’ needs?",
+        "topic": "Topic 01 - Plan to gather high-quality data from the start",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    },
+    {
+        "id": "question-2",
+        "question": "How to ensure our AI have the breadth to meet our users’ needs?",
+        "topic": "Topic 02 - Translate User Needs into Data Needs",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    },
+    {
+        "id": "question-3",
+        "question": "How can we ensure that the data quality is high?",
+        "topic": "Topic 03 - Translate User Needs into Data Needs",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    },
+    {
+        "id": "question-4",
+        "question": "How can we prevent errors and bias in datasets when generating labels?",
+        "topic": "Topic 04 - Translate User Needs into Data Needs",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    },
+    {
+        "id": "question-5",
+        "question": "Are we treating data workers fairly?",
+        "topic": "Topic 05 - Translate User Needs into Data Needs",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    },
+    {
+        "id": "question-5",
+        "question": "How can we prevent errors and bias in datasets when generating labels?",
+        "topic": "Topic 06 - Translate User Needs into Data Needs",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    },
+    {
+        "id": "question-6",
+        "question": "Are we treating data workers fairly?",
+        "topic": "Topic 07 - Translate User Needs into Data Needs",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    },
+    {
+        "id": "question-7",
+        "question": "How can we prevent errors and bias in datasets when generating labels?",
+        "topic": "Topic 08 - Translate User Needs into Data Needs",
+        "answer": "<p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.</p><p>This can lead to significant downstream effects throughout the development pipeline, which we call “data cascades”. Here’s a hypothetical example of a data cascade:</p><ul><li>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</li><li>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model.</li><li>Once you released the Plant Pal app, however, you found out that many users were reporting plant detection errors in South America.</li></ul>"
+    }
+]
+}
+    
+    
+
