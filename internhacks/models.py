@@ -7,17 +7,17 @@ def load_user(user_id):
     """ Given user's id, retrieves user from database. """
     return User.query.get(int(user_id))
 
-# # Association table between User and Study.
-# UserBookmarks = db.Table('bookmarks',
-#     db.Column('study_id', db.Integer, db.ForeignKey('study.id')),
-#     db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
-# )
+# Association table between User and Study.
+UserBookmarks = db.Table('bookmarks',
+    db.Column('study_id', db.Integer, db.ForeignKey('study.id')),
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
+)
 
-# # Association table between Study and Tags.
-# StudyTags = db.Table('tags',
-#     db.Column('study_id', db.Integer, db.ForeignKey('study.id')),
-#     db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'))
-# )
+# Association table between Study and Tags.
+StudyTags = db.Table('tags',
+    db.Column('study_id', db.Integer, db.ForeignKey('study.id')),
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'))
+)
 
 class User(db.Model, UserMixin):
     """ Represents a user or admin user with login information. """
@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     is_admin = db.Column(db.Boolean, default=False)
-    # bookmarks = db.relationship('Study', secondary=UserBookmarks, backref=db.backref('bookmarked'), lazy=True)
+    bookmarks = db.relationship('Study', secondary=UserBookmarks, backref=db.backref('bookmarked'), lazy=True)
 
     def __repr__(self):
         """ Prints string of User. """
@@ -41,7 +41,7 @@ class Study(db.Model):
     external_url = db.Column(db.Text, nullable=False)
     image_url = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    # tags = db.relationship('Tag', secondary=StudyTags, backref=db.backref('studies'), lazy=True)
+    tags = db.relationship('Tag', secondary=StudyTags, backref=db.backref('studies'), lazy=True)
 
     def __repr__(self):
         """ Prints string of Study. """

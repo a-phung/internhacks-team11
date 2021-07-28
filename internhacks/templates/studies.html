@@ -1,9 +1,8 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 <div class="container-fluid p-5" style="padding-top: 30px;">
     <div class="row mt-5 justify-content-center">
         <div class="col-md-auto col-md-5 align-content-center my-auto">
-             <h1>Discover Case Studies</h1>
+            <h1>Discover Case Studies</h1>
         </div>
         <div class="col col-sm-12 col-md-auto col-md-5 my-auto px-0">
             <p>Looking for a specific case study of your domain? Explore our thoughtfully curated selections and find your one of a kind case study below.</p>
@@ -17,70 +16,64 @@
                         {{ form.hidden_tag() }}
                         <tr>
                             <td style="width:85%">
-                                {{ form.search.label(class="form-control-label") }}
-                                {{ form.search(class="form-control form-control-lg search-icon") }}
+                                {{ form.search.label(class="form-control-label") }} {{ form.search(class="form-control form-control-lg search-icon") }}
                             </td>
                             <td style="width:15%">
                                 <div>
-                                {{ form.submit(class="btn btn-primary btn-fairview") }}
+                                    {{ form.submit(class="btn btn-primary btn-fairview") }}
                                 </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </form> 
+            </form>
         </div>
     </div>
     <div class="row p-4 justify-content-center">
         <div class="col text-center">
             <ul class="tag-list">
                 <li><b>Tags:</b></li>
-                {% for tag in tags %}
-                {% if tag.name == tag_name %}
+                {% for tag in tags %} {% if tag.name == tag_name %}
                 <li>
                     <a class="nav-item nav-link" href="{{ url_for('case_studies', tag=None) }}">
-                    <button type="button" class="btn btn-primary btn-fairview" style="border-radius: 50rem!important;">{{ tag.name }}</button>
+                        <button type="button" class="m-1 btn btn-primary btn-fairview" style="border-radius: 50rem!important;">{{ tag.name }}</button>
                     </a>
                 </li>
                 {% else %}
                 <li>
                     <a class="nav-item nav-link" href="{{ url_for('case_studies', tag=tag.name) }}">
-                    <button type="button" class="btn btn-outline-primary btn-outline-fairview" style="border-radius: 50rem!important;">{{ tag.name }}</button>
+                        <button type="button" class="m-1 btn btn-outline-primary btn-outline-fairview" style="border-radius: 50rem!important;">{{ tag.name }}</button>
                     </a>
                 </li>
-                 {% endif %}
-                {% endfor %}
-               
+                {% endif %} {% endfor %}
+
             </ul>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 g-5">
-        {% for study in studies %}
-            {% if loop.index > 4 %}
-            <div class="col collapse multi-collapse">
+        {% for study in studies %} {% if loop.index > 4 %}
+        <div class="col collapse multi-collapse">
             {% endif %}
             <div class="col">
                 <div class="card h-100">
                     <img src="{{ study.image_url }}" class="card-img-top" alt="{{ study.topic }}">
                     <div class="study-bookmark">
-                        {% if current_user.is_authenticated %}
-                            {% if study in current_user.bookmarks %}
-                                <a href="{{ url_for('new_bookmark', study=study.id) }}" class="card-link">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark-off" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D00A4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        {% if current_user.is_authenticated %} {% if study in current_user.bookmarks %}
+                        <a href="{{ url_for('new_bookmark', study=study.id) }}" class="card-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark-off" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D00A4" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <line x1="3" y1="3" x2="21" y2="21" />
                                     <path d="M17 17v3l-5 -3l-5 3v-13m1.178 -2.818c.252 -.113 .53 -.176 .822 -.176h6a2 2 0 0 1 2 2v7" />
                                     </svg>
-                                </a>
-                            {% else %}
-                                <a href="{{ url_for('new_bookmark', study=study.id) }}" class="card-link">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D00A4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        </a>
+                        {% else %}
+                        <a href="{{ url_for('new_bookmark', study=study.id) }}" class="card-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D00A4" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2" />
                                     </svg>
-                                </a>
-                            {% endif %}
-                        {% endif %}
+                        </a>
+                        {% endif %} {% endif %}
                     </div>
                     <div class="card-body p-4" style="background-color: #FCFCFC">
                         <div class="row pt-2">
@@ -90,8 +83,10 @@
                                 <hr class="card-line" />
                             </div>
                         </div>
+                    </div>
+                    <div class="card-footer" style="background-color: #FCFCFC; border-top: none;">
                         <div class="row pb-2">
-                            <div class="col-5">
+                            <div class="col-5 text-center">
                                 <a href="{{ study.external_url}}" target="_blank" class="card-link">
                                     <button type="button" class="btn btn-outline-primary btn-outline-fairview external-link-btn">
                                     Learn More 
@@ -104,21 +99,19 @@
                                     </button>
                                 </a>
                             </div>
-                            <div class="col-7">
+                            <div class="col-7 text-center">
                                 {% for tag in study.tags %}
-                                <span class="text-white badge rounded-pill badge-tag bg-secondary">{{ tag.name }}</span>
-                                {% endfor %}
+                                <span class="text-white badge rounded-pill badge-tag bg-secondary">{{ tag.name }}</span> {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
-{% if studies|length > 4 %}
+    {% if studies|length > 4 %}
     <div class="text-center mt-5">
         <button class="btn btn-primary btn-fairview hide-me" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" style="padding: 10px 30px;">View More</button>
     </div>
-{% endif %}
-{% endblock content%}
+    {% endif %} {% endblock content%}

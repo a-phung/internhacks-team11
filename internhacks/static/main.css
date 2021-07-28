@@ -1,219 +1,223 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
 body {
-  background: #ffffff;
-  color: #333333;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+    background: #ffffff;
+    color: #333333;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #444444;
 }
 
 .bg-steel {
-  background-color: #5f788a;
+    background-color: #5f788a;
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #0D00A4;
-  font-size: 15px;
+    color: #0D00A4;
+    font-size: 15px;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #140152;
+    color: #140152;
 }
 
 .site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 .content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
 
 .article-title {
-  color: #444444;
+    color: #444444;
 }
 
 a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
+    color: #428bca;
+    text-decoration: none;
 }
 
 .article-content {
-  white-space: pre-line;
+    white-space: pre-line;
 }
 
 .article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
 }
 
 .article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
 }
 
 .article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
+    color: #333;
+    text-decoration: none;
 }
 
 .article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
 }
 
 .account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
 }
 
 .account-heading {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
-
 .study-bookmark {
-  position: absolute;
-  top: 0;
-  right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 
 /* Custom Button Styling */
 
 .btn-fairview {
-  background-color: #0D00A4;
-  color: #ffffff;
-  border-color: #0D00A4;
+    background-color: #0D00A4;
+    color: #ffffff;
+    border-color: #0D00A4;
 }
 
 .btn-fairview:hover,
 .btn-fairview:active,
 .btn-fairview:focus,
 .btn-fairview.active {
-  background: #140152;
-  color: #ffffff;
-  border-color: #140152;
+    background: #140152;
+    color: #ffffff;
+    border-color: #140152;
 }
 
-.btn-outline-fairview{
-  border-color: #0D00A4;
-  color: #0D00A4;
-  background-color: #ffffff;
+.btn-outline-fairview {
+    border-color: #0D00A4;
+    color: #0D00A4;
+    background-color: #ffffff;
 }
 
 .btn-outline-fairview:hover,
 .btn-outline-fairview:active,
 .btn-outline-fairview:focus,
 .btn-outline-fairview.active {
-  background: #0D00A4;
-  color: #ffffff;
-  border-color: #0D00A4;
+    background: #0D00A4;
+    color: #ffffff;
+    border-color: #0D00A4;
 }
 
 .btn-outline-fairview:hover svg,
 .btn-outline-fairview:active svg,
 .btn-outline-fairview:focus svg,
 .btn-outline-fairview.active svg {
-  stroke: #ffffff;
+    stroke: #ffffff;
 }
 
 .badge-fairview {
-  border-color: #0D00A4;
-  color: #0D00A4;
-  background-color: #ffffff;
+    border-color: #0D00A4;
+    color: #0D00A4;
+    background-color: #ffffff;
 }
+
 
 /* Home Page */
 
 .carousel-inner {
-  height: 450px;
+    height: 450px;
 }
 
-
 .carousel-caption {
-  font-size:1.1em;
-  font-weight: 500;
-  bottom: -2.5rem;
-  padding-bottom: 0px;
+    font-size: 1.1em;
+    font-weight: 500;
+    bottom: -2.5rem;
+    padding-bottom: 0px;
 }
 
 .home-card-study p {
-  font-size: .85em;
+    font-size: .85em;
 }
 
 .home-case-studies {
-  background-color: #E7ECEF;
+    background-color: #E7ECEF;
 }
 
-.page-container{
-  position:relative;
-  min-height: 100vh;
+.page-container {
+    position: relative;
+    min-height: 100vh;
 }
 
 #content-wrap {
-  min-height: 100%;
-  height: auto!important;
-  height: 100%;
-  padding-bottom:8rem;
-  /* Footer height */
+    min-height: 100%;
+    height: auto!important;
+    height: 100%;
+    padding-bottom: 8rem;
+    /* Footer height */
 }
 
 .nav-footer {
-  position: static;
-  width: 100%;
-  padding: 45px 0 15px 0;
-  left: 0;
-  bottom: 0;
-  background-color: #ffffff;
-  color: #000000;
-  text-align: center;
+    position: static;
+    width: 100%;
+    padding: 45px 0 15px 0;
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
 }
 
 #menu-outer {
-  height: 84px;
+    height: 84px;
 }
 
 .table {
-  display: table;
-  /* Allow the centering to work */
-  margin: 0 auto;
+    display: table;
+    /* Allow the centering to work */
+    margin: 0 auto;
 }
 
 ul#horizontal-list {
-  /* min-width: 696px; */
-  list-style: none;
+    /* min-width: 696px; */
+    list-style: none;
 }
 
 ul#horizontal-list li {
-  display: inline;
+    display: inline;
 }
 
 ul#horizontal-list li a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .navbar-fairview {
-  height: 60px;
-  left: 0px;
-  top: 0px;
-  background: #FCFCFC;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    background: #FCFCFC;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-  /* Recommended Practices Page */
+
+/* Recommended Practices Page */
 
 .list-item-square {
     list-style-type: square;
@@ -221,99 +225,100 @@ ul#horizontal-list li a {
 }
 
 .card-practices {
-  width: 100%;
-  background: #FCFCFC;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 34px;
-  border: none;
-  font-size: .95em;
+    width: 100%;
+    background: #FCFCFC;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 34px;
+    border: none;
+    font-size: .95em;
 }
 
-.card-practices a{
-  font-style: normal;
-  font-weight: 600;
-  line-height: 36px;
-  letter-spacing: -0.015em;
-  text-align: left;
+.card-practices a {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: -0.015em;
+    text-align: left;
 }
 
 .card-practices .active {
-  color: black;
-  background: #F5F5F5;
-  border-radius: 0px 30px 30px 0px;
-  border-color: #F5F5F5;
+    color: black;
+    background: #F5F5F5;
+    border-radius: 0px 30px 30px 0px;
+    border-color: #F5F5F5;
 }
 
 .card-practices .list-group-item {
-  border: none;
+    border: none;
 }
 
 .practices-title {
-  font-weight: 500;
-  font-size: 1.1em;
-  letter-spacing: -0.015em;
-  color: #000000;
+    font-weight: 500;
+    font-size: 1.1em;
+    letter-spacing: -0.015em;
+    color: #000000;
 }
+
 
 /* Case Studies Page */
 
 .search-icon {
-  background-image: url("images/search.png");
-  background-size: 20px 20px;
-  background-position: left center;
-  background-repeat: no-repeat;
-  padding-left:30px;
-  background-repeat: no-repeat;
-  background-position-x: 5px;
-  font-size: .8em;
+    background-image: url("images/search.png");
+    background-size: 20px 20px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    font-size: .8em;
 }
 
 .search-table td {
-  vertical-align: middle;
-  text-align: center;
+    vertical-align: middle;
+    text-align: center;
 }
 
 .search-table .form-control-label {
-  display:inline;
+    display: inline;
 }
 
 .tag-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  float: left;
-  width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100%;
 }
 
 .tag-list li,
 .tag-list li .nav-link {
-  display: inline;
-  padding: 0px 5px;
+    display: inline;
+    padding: 0px 5px;
 }
 
 .tag-list li .nav-link .btn-fairview,
 .tag-list li .nav-link .btn-outline-fairview {
-  font-size: .85em;
+    font-size: .7em;
 }
 
 .badge-tag {
-  color: black !important;
-  background-color: #DAE0DF !important;
-  padding: 10px 17px;
-  margin: 5px;
+    color: black !important;
+    background-color: #DAE0DF !important;
+    padding: 7px 13px;
+    margin: 5px;
+    font-size: .65em;
 }
 
 .external-link.btn {
-  font-size: .9em;
+    font-size: .9em;
 }
 
 .card-line {
-  width: 95%;
-  height: 2px;
-  color: #dedede;
+    width: 95%;
+    height: 2px;
+    color: #dedede;
 }
 
 .hide-me[aria-expanded="true"] {
-  display: none;
+    display: none;
 }
-

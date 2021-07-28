@@ -3,20 +3,18 @@ from flask import Flask
 import os
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-from flask_migrate import Migrate
 
 # Starts Flask app
 app = Flask(__name__)
 # Protects against cookies - store your key in your ENV file
 app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY') 
 # Our database is found at site.db for local - for production, we will change this
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL_SQL') or 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Creates database
 db = SQLAlchemy(app)
 # Generates and checks password hashes 
 bcrypt = Bcrypt(app)
-migrate = Migrate(app, db)
-
 # Handles all of our login/logout functionality
 login_manager = LoginManager(app)
 # User is redirected to /login if not logged in

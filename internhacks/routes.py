@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect, request, jsonify, g
+from flask import render_template, url_for, flash, redirect, request, jsonify
 from internhacks.forms import RegistrationForm, LoginForm, StudyForm, TagForm, SearchForm, StudyTagForm
 from internhacks.models import User, Study, Tag
 from internhacks import app, db, bcrypt
