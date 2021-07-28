@@ -9,7 +9,7 @@ app = Flask(__name__)
 # Protects against cookies - store your key in your ENV file
 app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY') 
 # Our database is found at site.db for local - for production, we will change this
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///site.db'
 # Creates database
 db = SQLAlchemy(app)
 # Generates and checks password hashes 
