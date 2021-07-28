@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="container-fluid">
-        <div class="row p-4 vh-100 justify-content-center">
+        <div class="row p-4 justify-content-center">
             <div class="col col-sm-12 col-md-auto col-lg-6 my-auto px-0">
                 <img src="/static/images/undraw_Data_points_cropped.png" class="img-fluid">
             </div>
@@ -19,8 +19,8 @@
         <div class="row p-4 text-center">
             <h1>What questions do you have?</h1>
         </div>
-        <div class="row">
-            <div class="col-5">
+        <div class="row p-4">
+            <div class="col-5 p-3">
                 <div class="card card-practices">
                     <div class="card-body">
                         <div class="list-group list-group-flush" id="list-tab" role="tablist">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-7">
+            <div class="col-7 p-3">
                 <div class="tab-content" id="nav-tabContent">
                     {% for item in data %}
                         {% if loop.index == 1 %}
@@ -46,7 +46,7 @@
                                 <img src="/static/images/placeholder.jpeg" style="height:50px;" />
                             </div>
                             <div class="col-10">  
-                                <span>{{item.question}}</span>
+                                <span>{{item.topic}}</span>
                             </div>
                         </div>
                         <div>
