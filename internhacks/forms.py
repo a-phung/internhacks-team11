@@ -59,7 +59,7 @@ class TagForm(FlaskForm):
 
 class SearchForm(FlaskForm):
     """ Search on case studies page. """
-    search = StringField("")
+    search = StringField("", render_kw={"placeholder": "Search topic or description..."})
     submit = SubmitField("Search")
 
 

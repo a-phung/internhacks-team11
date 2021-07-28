@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 body {
-  background: #f3f7f6;
+  background: #ffffff;
   color: #333333;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -130,6 +130,26 @@ a.article-title:hover {
   stroke: #ffffff;
 }
 
+.badge-fairview {
+  border-color: #0D00A4;
+  color: #0D00A4;
+  background-color: #ffffff;
+}
+
+/* Home Page */
+
+.carousel-inner {
+  height: 450px;
+}
+
+
+.carousel-caption {
+  font-size:1.1em;
+  font-weight: 500;
+  bottom: -2.5rem;
+  padding-bottom: 0px;
+}
+
 .home-card-study p {
   font-size: .85em;
 }
@@ -193,16 +213,107 @@ ul#horizontal-list li a {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+  /* Recommended Practices Page */
+
+.list-item-square {
+    list-style-type: square;
+    margin-left: -2em;
+}
+
+.card-practices {
+  width: 100%;
+  background: #FCFCFC;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 34px;
+  border: none;
+  font-size: .95em;
+}
+
+.card-practices a{
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.015em;
+  text-align: left;
+}
+
+.card-practices .active {
+  color: black;
+  background: #F5F5F5;
+  border-radius: 0px 30px 30px 0px;
+  border-color: #F5F5F5;
+}
+
+.card-practices .list-group-item {
+  border: none;
+}
+
+.practices-title {
+  font-weight: 500;
+  font-size: 1.1em;
+  letter-spacing: -0.015em;
+  color: #000000;
+}
+
+/* Case Studies Page */
+
+.search-icon {
+  background-image: url("images/search.png");
+  background-size: 20px 20px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left:30px;
+  background-repeat: no-repeat;
+  background-position-x: 5px;
+  font-size: .8em;
+}
+
+.search-table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.search-table .form-control-label {
+  display:inline;
+}
+
 .tag-list {
+  list-style-type: none;
   margin: 0;
   padding: 0;
   float: left;
   width: 100%;
 }
 
-.tag-list li {
+.tag-list li,
+.tag-list li .nav-link {
   display: inline;
-  padding: 0;
-  margin:0;
-
+  padding: 0px 5px;
 }
+
+.tag-list li .nav-link .btn-fairview,
+.tag-list li .nav-link .btn-outline-fairview {
+  font-size: .85em;
+}
+
+.badge-tag {
+  color: black !important;
+  background-color: #DAE0DF !important;
+  padding: 10px 17px;
+  margin: 5px;
+}
+
+.external-link.btn {
+  font-size: .9em;
+}
+
+.card-line {
+  width: 95%;
+  height: 2px;
+  color: #dedede;
+}
+
+.hide-me[aria-expanded="true"] {
+  display: none;
+}
+

@@ -4,6 +4,7 @@ from internhacks.models import User, Study, Tag
 from internhacks import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from functools import wraps
+import json
 import io
 import csv
 import copy
@@ -25,14 +26,16 @@ def admin_required(f):
 @app.route("/")
 def home():
     """ Render Home page. """
-    studies = Study.query.limit(2).all()
+    studies = Study.query.limit(3).all()
     return render_template("home.html", studies=studies)
 
 
 @app.route("/recommended-practices")
 def practices():
     """ Render Practices page. """
-    return render_template("practices.html", title="Recommended Practices")
+    with app.open_resource('practices.json') as f:
+        data = json.load(f)
+    return render_template("practices.html", title="Recommended Practices", data=data["data"])
 
 
 @app.route("/admin")
@@ -170,7 +173,7 @@ def case_studies():
             studies = filtered_results
         else:
             flash(f"There were no matches to your search.", "warning")
-    return render_template("studies.html", title="Case Studies", studies=studies, tags=tags, form=SearchForm())
+    return render_template("studies.html", title="Case Studies", studies=studies, tags=tags, form=SearchForm(), tag_name=tag_name)
 
 
 @app.route("/upload", methods=["GET", "POST"])
@@ -291,3 +294,6 @@ def logout():
     """ Logs out user. """
     logout_user()
     return redirect(url_for("home"))
+
+
+
