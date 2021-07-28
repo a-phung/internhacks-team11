@@ -3,6 +3,7 @@ from flask import Flask
 import os
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_migrate import Migrate
 
 # Starts Flask app
 app = Flask(__name__)
@@ -14,6 +15,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL_SQL') or 's
 db = SQLAlchemy(app)
 # Generates and checks password hashes 
 bcrypt = Bcrypt(app)
+migrate = Migrate(app, db)
+
 # Handles all of our login/logout functionality
 login_manager = LoginManager(app)
 # User is redirected to /login if not logged in
