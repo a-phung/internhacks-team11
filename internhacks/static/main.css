@@ -136,6 +136,20 @@ a.article-title:hover {
   background-color: #ffffff;
 }
 
+/* Home Page */
+
+.carousel-inner {
+  height: 450px;
+}
+
+
+.carousel-caption {
+  font-size:1.1em;
+  font-weight: 500;
+  bottom: -2.5rem;
+  padding-bottom: 0px;
+}
+
 .home-card-study p {
   font-size: .85em;
 }
@@ -200,6 +214,12 @@ ul#horizontal-list li a {
 }
 
   /* Recommended Practices Page */
+
+.list-item-square {
+    list-style-type: square;
+    margin-left: -2em;
+}
+
 .card-practices {
   width: 100%;
   background: #FCFCFC;
@@ -296,3 +316,4 @@ ul#horizontal-list li a {
 .hide-me[aria-expanded="true"] {
   display: none;
 }
+
