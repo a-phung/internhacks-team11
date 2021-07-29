@@ -350,3 +350,68 @@ ul#horizontal-list li a {
     overflow-y: scroll;
 }
 
+/* CSS section for Analyze Dataset Page */
+
+/* Class to add a margin to the top */
+.top-buffer {
+    margin-top: 7rem;
+}
+
+.analyze-h1 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3rem;
+    line-height: 80px;
+    letter-spacing: -0.015em;
+    color: black;
+}
+
+.analyze-h2 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.5em;
+    line-height: 72px;
+    letter-spacing: -0.015em;
+    color: black;
+}
+
+.analyze-body1 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+
+.analyze-body2 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+
+.analyze-square {
+    width: 942px;
+    height: 548px;
+    border: 1px solid rgba(22, 22, 22, 0.5);
+    background: white;
+}
+
+.upload-button, .upload-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #0D00A4;
+    color: #ffffff;
+    border-color: #0D00A4;
+    border: 1px solid;
+}
+
+/* CSS section for Analyze Dataset Page End*/
