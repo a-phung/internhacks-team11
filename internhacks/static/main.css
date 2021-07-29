@@ -374,7 +374,7 @@ ul#horizontal-list li a {
 }
 
 .analyze-body1 {
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 1em;
@@ -401,6 +401,22 @@ ul#horizontal-list li a {
 .upload-button, .upload-button:hover {
     color: white;
     text-decoration: none;
+}
+
+.upload-text {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    display: flex;
+    letter-spacing: -0.015em;
+    color: #C4C4C4;
+}
+
+.mx-6 {
+    margin-left: ($spacer * 3.5) !important;
+    margin-right: ($spacer * 3.5) !important;
 }
 
 input[type=file]::file-selector-button {

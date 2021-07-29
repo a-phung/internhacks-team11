@@ -181,6 +181,7 @@ def upload():
     """ Render Upload page. """
     row_headers = None
     attributes_dict = {}
+    scroll = None
     if request.method == "POST":  # POST method from submitting file
         if request.files:  # If file is available and uploaded
             csv_file = request.files["file"]  # Store in variable
@@ -233,10 +234,11 @@ def upload():
 
             try:  # If attributes were taken from data set, row_headers are passed off
                 row_headers = list(attributes_dict.values())[0].keys()
+                scroll = "metadata"
             except:  # Else, exception is raised.
                 flash(f"No metadata was obtained! Please check your uploaded file.", "warning")
 
-    return render_template("upload.html", title="Upload File", data=attributes_dict, row_headers=row_headers)
+    return render_template("upload.html", title="Upload File", data=attributes_dict, row_headers=row_headers, scroll=scroll)
 
 
 @app.route("/account")
