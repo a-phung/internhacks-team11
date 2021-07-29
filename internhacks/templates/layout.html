@@ -22,7 +22,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-fairview">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">FairView</a>
+                <a class="navbar-brand px-3" href="/">FairView</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -78,7 +78,7 @@
     <!-- NavBar HTML end -->
 
     <!-- Main HTML body -->
-    <div class="container-fluid pt-5 px-0 page-container">
+    <div class="container-fluid px-0 page-container">
         <div id="content-wrap">
             <!-- Flash message start -->
             {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
@@ -99,9 +99,15 @@
                      <div id="menu-outer">
                         <div class="table">
                             <ul id="horizontal-list">
-                            <li><a href="#">Best Practices</a></li>
-                            <li><a href="#">Case Studies</a></li>
-                            <li><a href="#">Analyze Dataset</a></li>
+                            <li><a href="{{ url_for('practices') }}">
+                                Best Practices
+                            </a></li>
+                            <li><a href="{{ url_for('case_studies') }}">
+                                Case Studies
+                            </a></li>
+                            <li><a href="{{ url_for('upload') }}">
+                                Analyze Dataset
+                            </a></li>
                             </ul>
                         </div>
                     </div>

@@ -164,6 +164,7 @@ a.article-title:hover {
 .page-container {
     position: relative;
     min-height: 100vh;
+    padding-top: 75px;
 }
 
 #content-wrap {
@@ -216,13 +217,10 @@ ul#horizontal-list li a {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.navbar-collapse {
-    /* background: #FCFCFC; */
-    /* border-top: none; */
-    /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); */
-    /* height:auto; */
+.home-image{
+    height: 100%;
+    width: 100%;
 }
-
 /* Recommended Practices Page */
 
 .list-item-square {
