@@ -1,61 +1,154 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} 
+{% block javascript %}
+<script>$(".nav .nav-link").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).addClass("active");});
+</script>
+{% endblock %}
 {% block content %}
-    <div class="container-fluid">
-        <div class="row p-4 justify-content-center">
-            <div class="col col-sm-12 col-md-auto col-lg-6 my-auto px-0">
-                <img src="/static/images/undraw_Data_points_cropped.png" class="img-fluid">
+<div class="container-fluid">
+    <div class="row p-4 justify-content-center">
+        <div class="col col-sm-12 col-md-auto col-lg-6 my-auto px-0">
+            <img src="/static/images/undraw_Data_points_cropped.png" class="img-fluid">
+        </div>
+        <div class="col-md-auto col-lg-5 align-content-center my-auto p-3">
+            <div class="container">
+                <div class="row">
+                    <h1>Recommended Practices</h1>
+                </div>
+                <div class="row my-4">
+                    <p>We enclose a series of common practices scraped from research. They are organized around key questions that often come up in the Data Collection & Evaluation process, to help you easily find what you need for your project. </p>
+                </div>
             </div>
-            <div class="col-md-auto col-lg-5 align-content-center my-auto p-3">
-                <div class="container">
-                    <div class="row">
-                        <h1>Recommended Practices</h1>
-                    </div>
-                    <div class="row my-4">
-                        <p>We enclose a series of common practices scraped from research. They are organized around key questions that often come up in the Data Collection & Evaluation process, to help you easily find what you need for your project. </p>
+        </div>
+    </div>
+    <div class="row p-4 text-center">
+        <h1>What questions do you have?</h1>
+    </div>
+    <div class="row p-3">
+        <div class="col-md-4">
+            <div class="card card-practices">
+                <div class="card-body">
+                    <ul class="nav nav-pills mobile-dropdown-practices" role="tablist">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="default-option" href="#" role="button" aria-expanded="false">Filter by Question</a>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-truncate" data-bs-toggle="tab" role="tab" href="#question-2">How to ensure our training dataset meets our users’ needs?</a></li>
+                            <li><a class="dropdown-item text-truncate" data-bs-toggle="tab" role="tab" href="#question-3">Should we use an existing training dataset or develop our own?</a></li>
+                            <li><a class="dropdown-item text-truncate" data-bs-toggle="tab" role="tab" href="#question-1">How can we ensure that the data quality is high?</a></li>
+                            <li><a class="dropdown-item text-truncate" data-bs-toggle="tab" role="tab" href="#question-5">How can we prevent errors and bias in datasets when generating labels?</a></li>
+                            <li><a class="dropdown-item text-truncate" data-bs-toggle="tab" role="tab" href="#question-4">How do I responsibly build my dataset?</a></li>
+                            <li><a class="dropdown-item text-truncate" data-bs-toggle="tab" role="tab" href="#question-6">What metrics will we use to determine if our tuning is successful?</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="nav flex-column nav-pills desktop-practices" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#question-all" role="tab" aria-controls="v-pills-home" aria-selected="true">All Questions (6)</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#question-2" role="tab" aria-controls="v-pills-profile" aria-selected="false">How to ensure our training dataset meets our users’ needs?</a>
+                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#question-3" role="tab" aria-controls="v-pills-messages" aria-selected="false">Should we use an existing training dataset or develop our own?</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#question-1" role="tab" aria-controls="v-pills-settings" aria-selected="false">How can we ensure that the data quality is high?</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#question-5" role="tab" aria-controls="v-pills-profile" aria-selected="false">How can we prevent errors and bias in datasets when generating labels?</a>
+                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#question-4" role="tab" aria-controls="v-pills-messages" aria-selected="false">How do I responsibly build my dataset?</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#question-6" role="tab" aria-controls="v-pills-settings" aria-selected="false">What metrics will we use to determine if our tuning is successful?</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row p-4 text-center">
-            <h1>What questions do you have?</h1>
-        </div>
-        <div class="row p-4">
-            <div class="col-5 p-3">
-                <div class="card card-practices">
-                    <div class="card-body">
-                        <div class="list-group list-group-flush" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#question-1" role="tab" aria-controls="list-home">All Items (7)</a>
-                            {% for item in data %}
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#{{item.id}}" role="tab" aria-controls={{item.id}}>{{ item.question }}</a>
-                            {% endfor %}
+        <div class="col-md-8 p-3">
+            <div class="tab-content practice-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="question-all" role="tabpanel">
+                    <h3>Data Collection & Evaluation</h3>
+                    <div class="row my-4 justify-content-center practices-title">
+                        <div class="col-md-2 text-center">
+                            <img src="/static/images/practice_1.png" style="height:50px;" />
                         </div>
+                        <div class="col-md-10">
+                            <span>Topic 01 - Plan to gather high-quality data from the start</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.This can lead to significant downstream effects, called “data cascades”. Here’s an example of a data cascade:</p><p>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</p><p>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model. Once you released the app, however, you found out that many users were reporting plant detection errors in South America. </p><p>This is an example of a data cascade, as the effects of the mismatch between training data and user data in the real world were delayed. This could have been avoided by including images of plants native to South America when developing the AI model, or releasing the app to users in North America only.</p><p>It’s best to plan to use high-quality data from the beginning, this can help you detect issues earlier. High-quality data can be defined as:</p><ul><li>Accurately representing a real-world phenomenon or entity</li><li>Collected, stored, and used responsibly</li><li>Reproducible</li><li>Maintainable over time</li><li>Reusable across relevant applications</li><li>Having empirical and explanatory power</li></ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="question-1" role="tabpanel">
+                    <div class="row my-4 justify-content-center practices-title">
+                        <div class="col-md-2 text-center">
+                            <img src="/static/images/practice_1.png" style="height:50px;" />
+                        </div>
+                        <div class="col-md-10">
+                            <span>Topic 01 - Plan to gather high-quality data from the start</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Data is critical to AI, but the time and resources invested in model development and performance often outweigh those spent on data quality.This can lead to significant downstream effects, called “data cascades”. Here’s an example of a data cascade:</p><p>Let’s say you’re developing an app that allows the user to upload the picture of a plant, and then displays a prediction for the plant’s type, and whether it is safe for humans and pets to touch and eat it.</p><p>When you prepared a dataset to train the image classification model, you used mostly images of plants native to North America because you found a dataset that was already labeled and easy to use to train the model. Once you released the app, however, you found out that many users were reporting plant detection errors in South America. </p><p>This is an example of a data cascade, as the effects of the mismatch between training data and user data in the real world were delayed. This could have been avoided by including images of plants native to South America when developing the AI model, or releasing the app to users in North America only.</p><p>It’s best to plan to use high-quality data from the beginning, this can help you detect issues earlier. High-quality data can be defined as:</p><ul><li>Accurately representing a real-world phenomenon or entity</li><li>Collected, stored, and used responsibly</li><li>Reproducible</li><li>Maintainable over time</li><li>Reusable across relevant applications</li><li>Having empirical and explanatory power</li></ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="question-2" role="tabpanel">
+                    <div class="row my-4 justify-content-center practices-title">
+                        <div class="col-md-2 text-center">
+                            <img src="/static/images/practice_2.png" style="height:50px;" />
+                        </div>
+                        <div class="col-md-10">
+                            <span>Topic 02 - Translate user needs into data needs</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Datasets that can be used to train AI models contain <b>examples</b>, which contain one or more <b>features</b>, and possibly <b>labels</b>.</p><p>When deciding which examples, features, and labels are needed to train your ML model, work through your data needs on a conceptual level, as shown below.</p><p><b>Create a dataset specification</b></p><p>Just as you would create a product specification before starting work on a new feature or product, consider writing a document to specify your data needs. Use the problem statement that you defined from the user needs to define the dataset that you will need.</p><p><b>Get the data</b></p><p>Once you’ve defined the data requirements, you’ll start gathering the data. A good place to start is to determine if there are any existing datasets that you can reuse.If you decide to acquire an existing dataset, make sure that you have the following information:</p><ul><li>Is this data appropriate for your users and use case?</li><li>How was the data collected?</li><li>Which transformations were applied to it?</li><li>Do you need to augment it with additional data sources to be useful?</li></ul><p><b>Balance underfitting & overfitting</b></p><p>To build products to work in one context, use datasets that are expected to reliably reflect that context.</p><p>If your training data isn’t properly suited to the context, you also increase the risk of overfitting or underfitting your training set. Overfitting means the ML model is tailored too specifically to the training data. If an ML model has overfit the training data, it can make great predictions on the training data but performs worse on the test set or when given new data.</p><p>Models can also make poor predictions due to underfitting, where a model hasn’t properly captured the complexity of the relationships among the training dataset features and therefore can’t make good predictions with training data or with new data.</p><p><b>Commit to fairness</b></p><p>At every stage of development, human bias can be introduced into the ML model. Here are some examples of how ML systems can fail users:</p><ul><li>Representational harm, when a system amplifies or reflects negative stereotypes about particular groups.</li><li>Opportunity denial, when systems make predictions and decisions that have real-life consequences and lasting impacts on individuals’ access to opportunities, resources, and overall quality of life.</li><li>Disproportionate product failure, when a product doesn’t work or gives skewed outputs more frequently for certain groups of users.</li><li>Harm by disadvantage, when a system infers disadvantageous associations between certain demographic characteristics and user behaviors or interests.</li></ul><p><b>Use data that applies to different groups of users</b></p><p>Your training data should reflect the diversity and cultural context of the people who will use it. In doing so, note that to properly train your model, you might need to collect data from equal proportions of different user groups that might not exist in equal proportions in the real world.</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="question-3" role="tabpanel">
+                    <div class="row my-4 justify-content-center practices-title">
+                        <div class="col-md-2 text-center">
+                            <img src="/static/images/practice_3.png" style="height:50px;" />
+                        </div>
+                        <div class="col-md-10">
+                            <span>Topic 03 - Source your data responsibly</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p><b>Use existing datasets</b></p><p>It may not be possible to build your dataset from scratch. As an alternative, you may need to use existing data from sources such as Google Cloud AutoML, Google Dataset Search, Google AI datasets, or Kaggle.</p><p>Before using an existing dataset, take the time to thoroughly explore it using tools like ours to better understand any gaps or biases. Real data is often messy, so you should expect to spend a fair amount of time cleaning it up.</p><p><b>Build your own dataset</b></p><p>When creating your own dataset, it’s wise to start by observing someone who is an expert in the domain your product aims to serve. Instead of one-off partnerships with domain experts, strive for ongoing collaborations with domain experts throughout the project lifecycle.</p><p>Once you’ve gathered potential sources for your dataset, spend some time getting to know your data. You’ll need to go through the following steps:</p><ul><li>Identify your data source(s).</li><li>Review how often your data source(s) are refreshed.</li><li>Inspect the features’ possible values, units, and data types.</li><li>Identify any outliers, and investigate whether they’re actual outliers or due to errors in the data.</li></ul><p>Understanding where your dataset came from and how it was collected will help you discover potential issues.</p><p><b>Capture the real world</b></p><p>Make sure that your input data is as similar as possible to real-world data to avoid model failure in production. </p><p>In many cases, you’ll find that the data captured by users can be starkly different from that in your training dataset. Instead of striving for a very “clean” dataset that contains only very high-resolution images for an image classification problem, or only correctly formatted and typo-free movie reviews for a sentiment analysis problem, allow some ‘noise’ into your training dataset.</p><p><b>Prepare a data maintenance plan</b></p><p>If you want to create a dataset, consider whether you can maintain it and if you can afford the risks of something going wrong. Focus on these tasks to maintain dataset quality:</p><ul><li><b>Preventive maintenance</b>: Prevent problems before they occur. Store your dataset in a stable repository that provides different levels of access and stable identifiers.</li><li><b>Adaptive maintenance</b>: Preserve the dataset while the real world changes. Decide which properties of the dataset should be preserved, and keep this data updated over time. </li><li><b>Corrective maintenance</b>: Fix errors. Problems can occur as a result of data cascades. Keep a detailed, human-readable log of everything that you change in the dataset.</li></ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="question-4" role="tabpanel">
+                    <div class="row my-4 justify-content-center practices-title">
+                        <div class="col-md-2 text-center">
+                            <img src="/static/images/practice_4.png" style="height:50px;" />
+                        </div>
+                        <div class="col-md-10">
+                            <span>Topic 04 - Prepare and document your data</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p><b>Split your dataset into training and test sets</b></p><p>And finally, you’ll need to split the data into training and test sets. A typical split of your dataset could result in: 60% for training, and 40% for testing.</p><p><b>Analyze and prepare your data</b></p><p>An important step in all model training pipelines is handling “dirty” or inconsistent data. Data cleaning often consists of two stages: detecting and addressing issues.</p><p>Data cleaning and analysis require iteration. Analyzing and visualizing data may help identify issues in your dataset, possibly requiring further cleaning.</p><p><b>Document your data</b></p><p>Having a record of your dataset’s sources, a list of operations and transformations that have been applied to it, its history over time, and recommended uses can help when you do the following:</p><ul><li>Share your dataset with colleagues on your team or on another team</li><li>Review whether you can use or publish your dataset</li><li>Compare multiple datasets side by side</li><li>Use the data responsibly in to train a model for an AI-powered product</li><li>Interpret the behavior of an AI model that you trained with the data</li><li>Maintain the dataset for teams and systems that rely on it</li></ul><p>Data Cards are a form of documentation for datasets, and include information that can help answer the following questions about the data:</p><ul><li>What does it represent?</li><li>What does it look like?</li><li>Where does it come from?</li><li>How was it prepared?</li><li>Can it be used for a specific use case?</li><li>How should it be used responsibly?</li></ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="question-5" role="tabpanel">
+                    <div class="row my-4 practices-title">
+                        <div class="col-2 text-center">
+                            <img src="/static/images/practice_5.png" style="height:50px;" />
+                        </div>
+                        <div class="col-10">
+                            <span>Topic 05 - Design for labelers & labeling</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Labels can be added through automated processes or by people known as labelers. ‘Labelers’ covers a wide variety of contexts, skill sets, and levels of specialization, could be:</p><ul><li><b>Your users</b>: providing “derived” labels within your product</li><li><b>Generalists</b>: adding labels to a wide variety of data through crowd-sourcing tools</li><li><b>Trained subject matter experts</b>: using specialized tools to label things like medical images</li></ul><p><b>Ensure labeler pool diversity</b></p><p>Think about the perspectives and potential biases of the people in your pool, how to balance these with diversity, and how their points of view could impact the quality of the labels. Here are some questions to ask when evaluating your labeler pool:</p><ul><li>Are your annotators similar to your end users? </li><li>Are there cultural differences between labelers and users that could impact data quality?</li><li>Do labelers know what to do?</li><ul class=’list-item-square’><li>Are they domain experts, or do they need training?</li><li>Are there guidelines on data quality, and have they been provided in the annotator’s native language?</li><li>Do they know what the data will be used for?</li></ul></ul><p><b>Investigate labeler context and incentives</b></p><p>Think through the labeler experience, and how and why they are performing this task. There’s always a risk that they might complete the task incorrectly due to issues like boredom, repetition, or poor incentive design.</p><p><b>Design tools for labeling</b></p><p>Tools for labeling can range from in-product prompts to specialized software. When soliciting labels in-product, make sure to design the UI in a way that makes it easy for users to provide correct information. When building tools for professional labelers, the article <a href=’https://design.google/library/first-raters/’ target=’_blank’>First: Raters</a> offers some useful recommendations.</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="question-6" role="tabpanel">
+                    <div class="row my-4 justify-content-center practices-title">
+                        <div class="col-md-2 text-center">
+                            <img src="/static/images/practice_6.png" style="height:50px;" />
+                        </div>
+                        <div class="col-md-10">
+                            <span>Topic 06 - Tune your Model</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Once your model has been trained with your training data, evaluate the output to assess whether it’s addressing your target user need according to the success metrics you defined. If not, you’ll need to tune it accordingly.</p><p>To evaluate your model:</p><ul><li>Use tools like the <b>What-If tool</b> and the <b>Language Interpretability Tool (LIT)</b> to inspect your model and identify blindspots.</li><li>Test, test, test on an ongoing basis.</li><ul class=’list-item-square’><li>In early phases of development, get in-depth qualitative feedback with a diverse set of users from your target audience to find any “red flag” issues with your training dataset or your model tuning.</li><li>Try to tie model changes to a clear metric of the subjective user experience like customer satisfaction, or how often users accept a model’s recommendations.</li></ul></ul><p>In addition to improving standard metrics (e.g., accuracy), you need a strategy for how to deal with a system that doesn’t behave as expected. Consider the following:</p><ul><li><b>Low data quality, or not enough high-quality data. </b></li><li><b>Unintended consequences. Look for:</b></li><ul class=’list-item-square’><li>Errors in output, and patterns in them</li><li>Changes in data that can lead to changes in model performance (data drift)</li><li>Errors from the system itself, the context it’s in or what the user wants</li><li>How can you avoid these consequences in the next iteration?</li><li>A user might see something as an error if it’s not explained correctly</li></ul><li><b>Parts of the project which are particularly difficult for users to understand. </b>A user might see something as an error if it’s not explained correctly.</li><ul class=’list-item-square’><li>Provide an explanation for these situations. E.g., “We use all your liked songs to generate recommendations, not just your favorite songs.”</li></ul></ul><p>Once you’ve identified issues that need to be corrected, you’ll need to map them back to specific data features and labels, or model parameters. Resolving the problem could involve steps like adjusting the training data distribution, fixing a labeling issue or gathering more relevant data.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-7 p-3">
-                <div class="tab-content" id="nav-tabContent">
-                    {% for item in data %}
-                        {% if loop.index == 1 %}
-                        <div class="tab-pane fade show active" id="{{item.id}}" role="tabpanel">
-                        <h3>Data Collection & Evaluation</h3>
-                        {% else %}
-                        <div class="tab-pane fade" id="{{item.id}}" role="tabpanel">
-                        {% endif %}
-                        <div class="row my-4 practices-title">
-                            <div class="col-2">
-                                <img src="/static/images/placeholder.jpeg" style="height:50px;" />
-                            </div>
-                            <div class="col-10">  
-                                <span>{{item.topic}}</span>
-                            </div>
-                        </div>
-                        <div>
-                            {{item.answer|safe}}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
         </div>
-</div>
-{% endblock content%}
+    </div>
+    {% endblock content%}

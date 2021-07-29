@@ -209,13 +209,19 @@ ul#horizontal-list li a {
 }
 
 .navbar-fairview {
-    height: 60px;
+    height: auto;
     left: 0px;
     top: 0px;
     background: #FCFCFC;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+.navbar-collapse {
+    /* background: #FCFCFC; */
+    /* border-top: none; */
+    /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); */
+    /* height:auto; */
+}
 
 /* Recommended Practices Page */
 
@@ -233,15 +239,17 @@ ul#horizontal-list li a {
     font-size: .95em;
 }
 
-.card-practices a {
+.card-practices .nav-link {
     font-style: normal;
     font-weight: 600;
     line-height: 36px;
     letter-spacing: -0.015em;
     text-align: left;
+    color:#000000;
 }
 
-.card-practices .active {
+.card-practices .nav-pills .nav-link.active,
+.nav-pills .show >.nav-link {
     color: black;
     background: #F5F5F5;
     border-radius: 0px 30px 30px 0px;
@@ -259,6 +267,20 @@ ul#horizontal-list li a {
     color: #000000;
 }
 
+.mobile-dropdown-practices .dropdown-item {
+    font-size: .75em;
+}
+
+@media (max-width: 576px) {
+    .desktop-practices {
+        display: none;
+    }
+}
+@media (min-width: 576px) {
+    .mobile-dropdown-practices {
+        display: none;
+    }
+}
 
 /* Case Studies Page */
 
@@ -322,3 +344,9 @@ ul#horizontal-list li a {
 .hide-me[aria-expanded="true"] {
     display: none;
 }
+
+.practice-window {
+    height: 400px;
+    overflow-y: scroll;
+}
+

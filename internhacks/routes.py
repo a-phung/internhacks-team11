@@ -33,9 +33,7 @@ def home():
 @app.route("/recommended-practices")
 def practices():
     """ Render Practices page. """
-    with app.open_resource('practices.json') as f:
-        data = json.load(f)
-    return render_template("practices.html", title="Recommended Practices", data=data["data"])
+    return render_template("practices.html", title="Recommended Practices")
 
 
 @app.route("/admin")
