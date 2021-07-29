@@ -148,6 +148,7 @@ def case_studies():
     tag_name = request.args.get('tag')
     # Get all studies and tags
     studies = Study.query.all()
+    print(studies)
     tags = Tag.query.all()
     form = SearchForm()
     # If there is a search query or tag filter

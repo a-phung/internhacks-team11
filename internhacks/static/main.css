@@ -35,7 +35,6 @@ h6 {
 .content-section {
     background: #ffffff;
     padding: 10px 20px;
-    border: 1px solid #dddddd;
     border-radius: 3px;
     margin-bottom: 20px;
 }
@@ -171,7 +170,6 @@ a.article-title:hover {
     min-height: 100%;
     height: auto!important;
     height: 100%;
-    padding-bottom: 8rem;
     /* Footer height */
 }
 
@@ -313,7 +311,7 @@ ul#horizontal-list li a {
 .tag-list li,
 .tag-list li .nav-link {
     display: inline;
-    padding: 0px 5px;
+    padding: 0px 1px;
 }
 
 .tag-list li .nav-link .btn-fairview,
