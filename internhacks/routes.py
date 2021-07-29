@@ -184,9 +184,13 @@ def upload():
             csv_file = request.files["file"]  # Store in variable
             infile = io.StringIO(csv_file.stream.read().decode("UTF8"), newline=None)  # Makes each line readable
             reader = csv.reader(infile)  # Read the csv "infile"
-            headers = next(reader)  # Iterate to headers
+            try:
+                headers = next(reader)  # Iterate to headers
+            except:  # Handles exception when no file was uploaded.
+                flash(f"No file was uploaded! Please select a file to upload for analysis.", "warning")
+                return render_template("upload.html", title="Upload File", data=attributes_dict, row_headers=row_headers)
 
-            feature_counts = {"count": 0, "missing": 0, "frequencies": {}}  # Set up components of dictionary
+            feature_counts = {"Count": 0, "Missing": 0, "Frequencies": {}}  # Set up components of dictionary
 
             for attribute in headers:  # Attribute searching algorithm
                 modified_attribute = attribute.replace('_', '').lower()
@@ -213,17 +217,17 @@ def upload():
                     if attribute in attributes_dict:
                         value = row[attribute]
                         if value == '':
-                            attributes_dict[attribute]["missing"] += 1
+                            attributes_dict[attribute]["Missing"] += 1
                         else:
-                            attributes_dict[attribute]["count"] += 1
-                            if value not in attributes_dict[attribute]["frequencies"]:
-                                attributes_dict[attribute]["frequencies"][value] = 0
-                            attributes_dict[attribute]["frequencies"][value] += 1
+                            attributes_dict[attribute]["Count"] += 1
+                            if value not in attributes_dict[attribute]["Frequencies"]:
+                                attributes_dict[attribute]["Frequencies"][value] = 0
+                            attributes_dict[attribute]["Frequencies"][value] += 1
 
             for attribute in attributes_dict:  # Get most common and least common frequencies
-                freq_dict = attributes_dict[attribute]["frequencies"]
-                attributes_dict[attribute]["most_common"] = max(freq_dict, key=freq_dict.get)
-                attributes_dict[attribute]["least_common"] = min(freq_dict, key=freq_dict.get)
+                freq_dict = attributes_dict[attribute]["Frequencies"]
+                attributes_dict[attribute]["Most Common"] = max(freq_dict, key=freq_dict.get)
+                attributes_dict[attribute]["Least Common"] = min(freq_dict, key=freq_dict.get)
 
             try:  # If attributes were taken from data set, row_headers are passed off
                 row_headers = list(attributes_dict.values())[0].keys()

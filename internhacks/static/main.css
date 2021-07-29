@@ -256,13 +256,18 @@ ul#horizontal-list li a {
     height: 548px;
     border: 1px solid rgba(22, 22, 22, 0.5);
     background: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
 }
 
-.image-upload>input {
-    display: none;
+.upload-button, .upload-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #0D00A4;
+    color: #ffffff;
+    border-color: #0D00A4;
+    border: 1px solid;
 }
 
 /* CSS section for Analyze Dataset Page End*/
