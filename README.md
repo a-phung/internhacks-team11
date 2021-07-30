@@ -28,13 +28,12 @@ This project is created with:
 To run this project, install it locally and run `python3 run.py`.
 
 ## Team
-Engineers: Andy Phung, Kharissa Fernando Smith, Henry Arinze
-Product Designer: Nicole Marisol Nobbay
-Product Manager: Quynh Thuy Doan
+- Engineers: Andy Phung, Kharissa Fernando Smith
+- Product Designer: Nicole Marisol Nobbay
+- Product Manager: Quynh Thuy Doan
 
 ## Credits
 Icons: [tablericons.com](https://tablericons.com/)
-Images: 
 
 ## License
 [MIT](https://en.wikipedia.org/wiki/MIT_License)
