@@ -1,14 +1,15 @@
 # FairView
 
 ## Table of contents
-* [General info](#general-info)
+* [General Info](#general-info)
+* [Website Details](#website-details)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Team](#team)
 * [Credits](#credits)
 * [License](#license)
 
-## General info
+## General Info
 FairView is a project run by a group of enthusiastic college students offering a tool to help Machine Language Practitioners and Data Researchers to gain deeper insights into their demographic metadata and realize possible bias/unfairness. 
 
 With our tools, view the distribution of your metadata’s available demographic attributes, including distribution of age, race, education, and income data. 
@@ -16,7 +17,12 @@ With our tools, view the distribution of your metadata’s available demographic
 We also help uncover issues such as the most and least dominant feature values, missing values for a large number of observations. 
 
 We believe sharing comprehensible and easily accessible information can help bring awareness and understanding to how to apply these practices in your ML algorithmic bias detection and mitigation. 
-	
+
+## Website Details
+Website link: https://fair-view.herokuapp.com/
+
+![alt text](img/fairview.gif)
+
 ## Technologies
 This project is created with:
 * Python, Flask
