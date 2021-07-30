@@ -2,6 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Website Details](#website-details)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Team](#team)
@@ -16,7 +17,10 @@ With our tools, view the distribution of your metadata’s available demographic
 We also help uncover issues such as the most and least dominant feature values, missing values for a large number of observations. 
 
 We believe sharing comprehensible and easily accessible information can help bring awareness and understanding to how to apply these practices in your ML algorithmic bias detection and mitigation. 
-	
+
+## Website Details
+![alt text](img/fairview.gif)
+
 ## Technologies
 This project is created with:
 * Python, Flask
