@@ -34,7 +34,6 @@ To run this project, install it locally and run `python3 run.py`.
 
 ## Credits
 Icons: [tablericons.com](https://tablericons.com/)
-Images: 
 
 ## License
 [MIT](https://en.wikipedia.org/wiki/MIT_License)
