@@ -19,6 +19,8 @@ We also help uncover issues such as the most and least dominant feature values, 
 We believe sharing comprehensible and easily accessible information can help bring awareness and understanding to how to apply these practices in your ML algorithmic bias detection and mitigation. 
 
 ## Website Details
+https://fair-view.herokuapp.com/
+
 ![alt text](img/fairview.gif)
 
 ## Technologies
