@@ -271,10 +271,19 @@ ul#horizontal-list li a {
     .desktop-practices {
         display: none;
     }
+    .arrow {
+        display: none;
+    }
+    .analyze-table-img {
+        display: none;
+    }
 }
 @media (min-width: 576px) {
     .mobile-dropdown-practices {
         display: none;
+    }
+    .analyze-square {
+        border: 1px solid rgba(22, 22, 22, 0.5);
     }
 }
 
@@ -350,32 +359,16 @@ ul#horizontal-list li a {
 
 /* Class to add a margin to the top */
 .top-buffer {
-    margin-top: 7rem;
-}
-
-.analyze-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3rem;
-    line-height: 80px;
-    letter-spacing: -0.015em;
-    color: black;
+    margin-top: 7vmax;
 }
 
 .analyze-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 2.5em;
+    /*font-size: 2.5em;*/
     line-height: 72px;
     letter-spacing: -0.015em;
-    color: black;
 }
 
 .analyze-body1 {
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 1em;
     line-height: 30px;
@@ -383,9 +376,6 @@ ul#horizontal-list li a {
 }
 
 .analyze-body2 {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
     font-size: 1em;
     line-height: 30px;
     letter-spacing: -0.01em;
@@ -394,7 +384,6 @@ ul#horizontal-list li a {
 .analyze-square {
     width: 942px;
     height: 548px;
-    border: 1px solid rgba(22, 22, 22, 0.5);
     background: white;
 }
 
@@ -404,12 +393,9 @@ ul#horizontal-list li a {
 }
 
 .upload-text {
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 17px;
     line-height: 25px;
-    display: flex;
     letter-spacing: -0.015em;
     color: #C4C4C4;
 }

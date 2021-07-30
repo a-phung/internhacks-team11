@@ -3,16 +3,16 @@
 <div class="container-fluid">
     <div class="top-buffer">
         <div class="row justify-content-center">
-            <div class="col-md-4 d-flex justify-content-center">
-                <h1 class="analyze-h1">Analyze Dataset</h1>
+            <div class="col text-center">
+                <h1>Analyze Dataset</h1>
             </div>
         </div>
-        <div class="row p-5">
+        <div class="row p-5 align-items-center">
             <div class="col-md-6">
-                <img src="/static/images/undraw_Data_re_80ws.png" class="img-fluid">
+                <img src="/static/images/analyze-page-metadata.png" class="img-fluid analyze-table-img">
             </div>
             <div class="col-md-5 mr-4 offset-1">
-                <h2 class="analyze-h2">Try it out</h2>
+                <h2>Try it out</h2>
                     <p class="analyze-body1">
                         Fairview summarizes statistics for each feature and displays the distribution of values across the
                         numeric features: including age, income; and categorical features: including gender, race, education,
@@ -30,64 +30,70 @@
             </div>
         </div>
         <div class="row mt-5 justify-content-center">
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-md-4 text-center">
                 <h2 class="analyze-h2">How do I start?</h2>
             </div>
         </div>
-        <div class="row mt-5 justify-content-center">
-            <div class="col d-flex align-items-center justify-content-center">
-                <img src="/static/images/analyze-page-register.png" class="img-fluid">
-                <img src="/static/images/arrow.png" class="img-fluid mx-5">
-                <img src="/static/images/analyze-page-locate.png" class="img-fluid">
-                <img src="/static/images/arrow.png" class="img-fluid mx-5">
-                <img src="/static/images/analyze-page-upload.png" class="img-fluid">
-                <img src="/static/images/arrow.png" class="img-fluid mx-5">
-                <img src="/static/images/analyze-page-wait.png" class="img-fluid">
-            </div>
-        </div>
-        <div class="row mt-4 justify-content-center">
-            <div class="col-md-3 d-flex align-items-center justify-content-end">
-                <span class="mr-5 analyze-body1">Register for an account or sign in</span>
-            </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-end">
-                <span class="pl-5 analyze-body1">Locate a dataset to uncover metadata</span>
-            </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-end">
-                <span class="px-5 analyze-body1">Either upload the dataset from your computer or paste the link to the dataset</span>
-            </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-start">
-                <span class="pl-5 analyze-body1">Wait for your report to load to view analysis</span>
+        <div class="row mt-5">
+            <div class="col">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-2 text-center">
+                        <img src="/static/images/analyze-page-register.png" class="img-fluid">
+                        <p class="analyze-body1 mt-5">Register for an account or sign in</p>
+                    </div>
+                    <div class="col-md-1">
+                        <img src="/static/images/arrow.png" class="img-fluid mx-5 mb-5 arrow">
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <img src="/static/images/analyze-page-locate.png" class="img-fluid">
+                        <p class="analyze-body1 mt-5">Locate a dataset to uncover metadata</p>
+                    </div>
+                    <div class="col-md-1">
+                        <img src="/static/images/arrow.png" class="img-fluid mx-5 mb-5 arrow">
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <img src="/static/images/analyze-page-upload.png" class="img-fluid">
+                        <p class="analyze-body1 mt-5">Either upload the dataset from your computer or paste the link to the dataset</p>
+                    </div>
+                    <div class="col-md-1">
+                        <img src="/static/images/arrow.png" class="img-fluid mx-5 mb-5 arrow">
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <img src="/static/images/analyze-page-wait.png" class="img-fluid">
+                        <p class="analyze-body1 mt-5">Wait for your report to load to view analysis</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="top-buffer">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12 analyze-square">
                     <div class="row justify-content-center">
-                        <div class="col-md-6 d-flex align-items-center justify-content-center mt-3">
+                        <div class="col-md-6 mt-3 text-center">
                             <h2 class="analyze-h2" id="dataset">Upload Dataset</h2>
                         </div>
                     </div>
-                    <div class="row mt-4 justify-content-center">
-                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <div class="row mt-2 justify-content-center">
+                        <div class="col-md-4 text-center">
                             <img src="/static/images/analyze-page-file.png" class="img-fluid">
                         </div>
                     </div>
                     <div class="row mt-4 justify-content-center">
-                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 text-center">
                             <form action="/upload" method="POST" enctype="multipart/form-data" class="justify-content-center">
                                 <fieldset>
                                     <div>
                                         <input type="file" id="data_set" name="file" accept=".csv">
                                     </div>
-                                    <div class="col-md-12 mt-3 d-flex align-items-center justify-content-center">
+                                    <div class="col-md-12 mt-3 text-center">
                                         <input type="submit" value="Load your Report" class="btn btn-primary btn-fairview">
                                     </div>
                                 </fieldset>
                             </form>
                         </div>
                     </div>
-                    <div class="row mt-4 justify-content-center">
-                        <div class="col-md-8 d-flex align-items-center justify-content-center">
+                    <div class="row mt-4">
+                        <div class="col-md-12 text-center">
                             <p class="upload-text">*Load one csv file with your first row being the header.</p>
                         </div>
                     </div>
@@ -101,7 +107,7 @@
         {% endif %}
         <div class="top-buffer">
             <div class="row">
-                <div class="col-md-12 align-content-center justify-content-center">
+                <div class="col-md-12">
                     {% if row_headers %}
                         <h3 class="mr-5" id="metadata">Metadata</h3>
                         <table class="table table-striped table-hover">
